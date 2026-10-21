@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visualizador de Backpropagation & Otimizadores</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Visualizador de Backpropagation & Otimizadores</h1>
+    <div class="controls">
+      <button id="btn-record">🎮 Gravar Ações</button>
+      <button id="btn-train">🧠 Treinar IA</button>
+      <button id="btn-optimizer">⚙️ Otimizador: <span id="optimizer-label">SGD</span></button>
+      <button id="btn-activation">🔀 Ativação: <span id="activation-label">SIGMOID</span></button>
+      <button id="btn-view">📐 Painel: <span id="view-label">JACOBIANA</span></button>
+      <button id="btn-gradcheck">🔬 Verificar Gradiente</button>
+      <button id="btn-export">💾 Exportar dataset</button>
+      <button id="btn-import">📂 Importar dataset</button>
+      <input type="file" id="file-import" accept="application/json,.json" hidden />
+      <button id="btn-reset">↺ Resetar</button>
+      <span id="phase-label" class="phase-badge">Fase: Especialista</span>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="panel panel-game">
+      <h2>Ambiente 2D</h2>
+      <canvas id="canvas-game"></canvas>
+      <div class="stats">
+        <span>Score: <span id="score-value">0</span></span>
+        <span>Dataset: <span id="dataset-size">0</span> amostras</span>
+      </div>
+    </section>
+
+    <section class="panel panel-network">
+      <h2>Diagrama da Rede Neural</h2>
+      <canvas id="canvas-network"></canvas>
+    </section>
+
+    <section class="panel panel-matrix">
+      <h2 id="panel-matrix-title">Jacobiana + Gradiente</h2>
+      <canvas id="canvas-matrix"></canvas>
+    </section>
+
+    <section class="panel panel-chart">
+      <h2>Convergência (Loss) — SGD vs Adam</h2>
+      <canvas id="canvas-chart"></canvas>
+    </section>
+  </main>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
